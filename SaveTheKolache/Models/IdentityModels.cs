@@ -29,6 +29,8 @@ namespace IdentitySample.Models
         {
         }
         public DbSet<UserProfileInfo> UserProfileInfo { get; set; }
+        //public DbSet<Campaign> Campaigns { get; set; }
+        //public DbSet<SignUpList> SignnUpList { get; set; }
 
         static ApplicationDbContext()
         {

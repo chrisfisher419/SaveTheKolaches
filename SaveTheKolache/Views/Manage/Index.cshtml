@@ -7,9 +7,13 @@
 <p class="text-success">@ViewBag.StatusMessage</p>
 <div class="row">
     <div class="col-md-8">
+        
         <p>
-            @(Model.HasPassword ? Html.ActionLink("Change your password", "ChangePassword") 
-                : Html.ActionLink("Pick a password", "SetPassword"))
+            @Html.ActionLink("Add/Modify Address", "AddAddress", "Manage")
+        </p>
+        <p>
+            @(Model.HasPassword ? Html.ActionLink("Change your password", "ChangePassword")
+                  : Html.ActionLink("Pick a password", "SetPassword"))
         </p>
         <p>
             Phone Number: @(Model.PhoneNumber ?? "None") [
@@ -33,11 +37,11 @@
         {
             using (Html.BeginForm("DisableTFA", "Manage", FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
             {
-                 @Html.AntiForgeryToken()
-                 <p>
-                     Two factor is currently enabled:
-                     <input type="submit" value="Disable" class="btn btn-default"/>
-                 </p>
+                @Html.AntiForgeryToken()
+                <p>
+                    Two factor is currently enabled:
+                    <input type="submit" value="Disable" class="btn btn-default"/>
+                </p>
             }
         }
         else
@@ -58,7 +62,7 @@
                 @Html.AntiForgeryToken()
                 <p>
                     Browser is curently remembered for two factor:
-                    <input type="submit" value="Forget Browser" class="btn btn-default" />
+                    <input type="submit" value="Forget Browser" class="btn btn-default"/>
                 </p>
             }
         }

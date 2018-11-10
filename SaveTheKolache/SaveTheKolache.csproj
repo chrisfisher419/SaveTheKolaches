@@ -218,10 +218,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CampaignsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
+    <Compile Include="Controllers\UserProfileInfoesController.cs" />
     <Compile Include="DAL\EFDbContext.cs" />
     <Compile Include="DAL\EFDbInitializer.cs" />
     <Compile Include="Global.asax.cs">
@@ -249,6 +251,17 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Manage\AddAddress.cshtml" />
+    <Content Include="Views\UserProfileInfoes\Create.cshtml" />
+    <Content Include="Views\UserProfileInfoes\Delete.cshtml" />
+    <Content Include="Views\UserProfileInfoes\Details.cshtml" />
+    <Content Include="Views\UserProfileInfoes\Edit.cshtml" />
+    <Content Include="Views\UserProfileInfoes\Index.cshtml" />
+    <Content Include="Views\Campaigns\Create.cshtml" />
+    <Content Include="Views\Campaigns\Delete.cshtml" />
+    <Content Include="Views\Campaigns\Details.cshtml" />
+    <Content Include="Views\Campaigns\Edit.cshtml" />
+    <Content Include="Views\Campaigns\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
@@ -264,6 +277,9 @@
     <EmbeddedResource Include="Migrations\201811100009235_migration2.resx">
       <DependentUpon>201811100009235_migration2.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\UserProfileInfo\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

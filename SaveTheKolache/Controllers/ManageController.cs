@@ -1,4 +1,5 @@
-﻿using IdentitySample.Models;
+﻿using System.Data.Entity;
+using IdentitySample.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -6,12 +7,16 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using SaveTheKolache.DAL;
+using SaveTheKolache.Models;
 
 namespace IdentitySample.Controllers
 {
     [Authorize]
     public class ManageController : Controller
     {
+        private EFDbContext db = new EFDbContext();
+
         public ManageController()
         {
         }
@@ -126,6 +131,27 @@ namespace IdentitySample.Controllers
             }
             return RedirectToAction("VerifyPhoneNumber", new { PhoneNumber = model.Number });
         }
+
+        //public ActionResult AddAddress()
+        //{
+        //    return View();
+        //}
+
+        //[HttpPost]
+        //public ActionResult AddAddress([Bind(Include = "Address, ZipCode")] UserProfileInfo model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Entry(model).State = EntityState.Modified;
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+            
+
+
+
+        //    return View(model);
+        //}
 
         //
         // POST: /Manage/RememberBrowser

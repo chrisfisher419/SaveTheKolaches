@@ -79,6 +79,14 @@ namespace IdentitySample.Models
         public string PhoneNumber { get; set; }
     }
 
+    public class AddAddressViewModel
+    {
+        public string Address { get; set; }
+
+        [Display(Name="Zip Code")]
+        public string ZipCode { get; set; }
+    }
+
     public class ConfigureTwoFactorViewModel
     {
         public string SelectedProvider { get; set; }
