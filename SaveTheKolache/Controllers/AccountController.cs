@@ -2,7 +2,7 @@
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using SaveTheKolache.DAL;
+//using SaveTheKolache.DAL;
 using SaveTheKolache.Models;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,7 +15,7 @@ namespace IdentitySample.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-        EFDbContext db = new EFDbContext();
+        //EFDbContext db = new EFDbContext();
         public AccountController()
         {
         }
@@ -207,22 +207,22 @@ namespace IdentitySample.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-                    db.UserProfileInfos.Add(new UserProfileInfo
-                        {
-                            UserID = model.UserID,
-                            Username = model.Username,
-                            LastName = model.LastName,
-                            FirstName = model.FirstName,
-                            BirthDate = model.BirthDate,
-                            CreateDate = model.CreateDate,
-                            Address = model.Address,
-                            ZipCode = model.ZipCode,
-                            CellPhone = model.CellPhone,
-                            EmailAddress = model.EmailAddress,
-                            Password = model.Password
-                        }
-                    );
-                    db.SaveChanges();
+                    //db.UserProfileInfos.Add(new UserProfileInfo
+                    //    {
+                    //        UserID = model.UserID,
+                    //        Username = model.Username,
+                    //        LastName = model.LastName,
+                    //        FirstName = model.FirstName,
+                    //        BirthDate = model.BirthDate,
+                    //        CreateDate = model.CreateDate,
+                    //        Address = model.Address,
+                    //        ZipCode = model.ZipCode,
+                    //        CellPhone = model.CellPhone,
+                    //        EmailAddress = model.EmailAddress,
+                    //        Password = model.Password
+                    //    }
+                    //);
+                    //db.SaveChanges();
 
                     //var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     //var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);

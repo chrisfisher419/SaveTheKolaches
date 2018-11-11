@@ -28,6 +28,8 @@ namespace IdentitySample.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+
+        
         public DbSet<UserProfileInfo> UserProfileInfo { get; set; }
         //public DbSet<Campaign> Campaigns { get; set; }
         //public DbSet<SignUpList> SignnUpList { get; set; }

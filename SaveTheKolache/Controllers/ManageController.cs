@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using IdentitySample.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
@@ -7,7 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using SaveTheKolache.DAL;
+//using SaveTheKolache.DAL;
 using SaveTheKolache.Models;
 
 namespace IdentitySample.Controllers
@@ -15,7 +16,7 @@ namespace IdentitySample.Controllers
     [Authorize]
     public class ManageController : Controller
     {
-        private EFDbContext db = new EFDbContext();
+        //private EFDbContext db = new EFDbContext();
 
         public ManageController()
         {
@@ -60,7 +61,9 @@ namespace IdentitySample.Controllers
                 PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
                 TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
                 Logins = await UserManager.GetLoginsAsync(userId),
-                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
+                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId),
+                UserProfileInfos = new List<UserProfileInfo>()
+
             };
             return View(model);
         }

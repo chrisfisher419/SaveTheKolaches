@@ -1,14 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Profile;
 
 namespace SaveTheKolache.Models
 {
-    public class UserProfileInfo
+    public class UserProfileInfo : ProfileBase
     {
+        //[Key]
+        //[DatabaseGenerated(DatabaseGeneratedOption.None)]
+        //public int UserID { get; set; }
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UserID { get; set; }
         public string Password { get; set; }
         public string Username { get; set; }
@@ -22,6 +28,7 @@ namespace SaveTheKolache.Models
         public string ZipCode { get; set; }
         public string EmailAddress { get; set; }
         public string CellPhone { get; set; }
+        public bool Activity { get; set; }
 
     }
 }

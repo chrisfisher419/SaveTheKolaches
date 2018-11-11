@@ -7,13 +7,13 @@ namespace SaveTheKolache.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class Migration1 : IMigrationMetadata
+    public sealed partial class one : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Migration1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(one));
         
         string IMigrationMetadata.Id
         {
-            get { return "201811100003259_Migration1"; }
+            get { return "201811112235595_one"; }
         }
         
         string IMigrationMetadata.Source

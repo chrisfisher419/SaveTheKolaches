@@ -10,8 +10,11 @@ namespace SaveTheKolache.Models
     {
         [Key]
         public int CampaignID { get; set; }
+        [Display(Name="Campaign Name")]
         public string CampaignName { get; set; }
+        [Display(Name="Type/Category")]
         public string Category { get; set; }
+        [Display(Name="Number Of People Signed")]
         public int UsersSignedUp { get; set; }
     }
 }

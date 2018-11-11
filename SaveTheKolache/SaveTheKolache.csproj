@@ -218,33 +218,37 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\CampaignsController.cs" />
+    <Compile Include="Controllers\CampaignController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
+    <Compile Include="Controllers\SignUpListController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
-    <Compile Include="Controllers\UserProfileInfoesController.cs" />
     <Compile Include="DAL\EFDbContext.cs" />
     <Compile Include="DAL\EFDbInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201811100003259_Migration1.cs" />
-    <Compile Include="Migrations\201811100003259_Migration1.Designer.cs">
-      <DependentUpon>201811100003259_Migration1.cs</DependentUpon>
+    <Compile Include="Migrations\201811112231228_InitialCreate.cs" />
+    <Compile Include="Migrations\201811112231228_InitialCreate.Designer.cs">
+      <DependentUpon>201811112231228_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201811100009235_migration2.cs" />
-    <Compile Include="Migrations\201811100009235_migration2.Designer.cs">
-      <DependentUpon>201811100009235_migration2.cs</DependentUpon>
+    <Compile Include="Migrations\201811112235595_one.cs" />
+    <Compile Include="Migrations\201811112235595_one.Designer.cs">
+      <DependentUpon>201811112235595_one.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
     <Compile Include="Models\Campaign.cs" />
+    <Compile Include="Models\CampaignSignViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ProfileViewModel.cs" />
     <Compile Include="Models\SignUpList.cs" />
     <Compile Include="Models\UserProfileInfo.cs" />
+    <Compile Include="Profile\AccountProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -254,7 +258,6 @@
     <Content Include="Views\Manage\AddAddress.cshtml" />
     <Content Include="Views\UserProfileInfoes\Create.cshtml" />
     <Content Include="Views\UserProfileInfoes\Delete.cshtml" />
-    <Content Include="Views\UserProfileInfoes\Details.cshtml" />
     <Content Include="Views\UserProfileInfoes\Edit.cshtml" />
     <Content Include="Views\UserProfileInfoes\Index.cshtml" />
     <Content Include="Views\Campaigns\Create.cshtml" />
@@ -262,6 +265,15 @@
     <Content Include="Views\Campaigns\Details.cshtml" />
     <Content Include="Views\Campaigns\Edit.cshtml" />
     <Content Include="Views\Campaigns\Index.cshtml" />
+    <Content Include="Views\UserProfileInfoes\Details.cshtml" />
+    <Content Include="Views\SignUpLists\Create.cshtml" />
+    <Content Include="Views\SignUpLists\Delete.cshtml" />
+    <Content Include="Views\SignUpLists\Details.cshtml" />
+    <Content Include="Views\SignUpLists\Edit.cshtml" />
+    <Content Include="Views\SignUpLists\Index.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\Profile\Edit.cshtml" />
+    <Content Include="Views\Profile\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
@@ -271,15 +283,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201811100003259_Migration1.resx">
-      <DependentUpon>201811100003259_Migration1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811100009235_migration2.resx">
-      <DependentUpon>201811100009235_migration2.cs</DependentUpon>
-    </EmbeddedResource>
+    <Folder Include="Views\Campaign\" />
+    <Folder Include="Views\SignUpList\" />
+    <Folder Include="Views\UserProfileInfo\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\UserProfileInfo\" />
+    <EmbeddedResource Include="Migrations\201811112231228_InitialCreate.resx">
+      <DependentUpon>201811112231228_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811112235595_one.resx">
+      <DependentUpon>201811112235595_one.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

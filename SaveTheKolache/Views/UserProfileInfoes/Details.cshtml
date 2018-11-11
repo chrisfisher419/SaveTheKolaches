@@ -1,4 +1,4 @@
-﻿@model SaveTheKolache.Models.UserProfileInfo
+﻿@model SaveTheKolache.Models.ProfileViewModel
 
 @{
     ViewBag.Title = "Details";
@@ -7,15 +7,31 @@
 <h2>Details</h2>
 
 <div>
-    <h4>UserProfileInfo</h4>
+    <h4>ProfileViewModel</h4>
     <hr />
     <dl class="dl-horizontal">
+        @*<dt>
+            @Html.DisplayNameFor(model => model.EmailAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailAddress)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Password)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConfirmPassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConfirmPassword)
         </dd>
 
         <dt>
@@ -27,19 +43,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CreateDate)
+            @Html.DisplayNameFor(model => model.LastName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CreateDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BirthDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BirthDate)
+            @Html.DisplayFor(model => model.LastName)
         </dd>
 
         <dt>
@@ -51,11 +59,19 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.LastName)
+            @Html.DisplayNameFor(model => model.BirthDate)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.LastName)
+            @Html.DisplayFor(model => model.BirthDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)*@
         </dd>
 
         <dt>
@@ -74,25 +90,17 @@
             @Html.DisplayFor(model => model.ZipCode)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EmailAddress)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EmailAddress)
-        </dd>
-
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.CellPhone)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.CellPhone)
-        </dd>
+        </dd>*@
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.UserID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.UserID }) |
+    @Html.ActionLink("Back to List", "Index")*@
 </p>

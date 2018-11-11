@@ -3,7 +3,7 @@ namespace SaveTheKolache.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Migration1 : DbMigration
+    public partial class InitialCreate : DbMigration
     {
         public override void Up()
         {
@@ -45,6 +45,7 @@ namespace SaveTheKolache.Migrations
                         ZipCode = c.String(),
                         EmailAddress = c.String(),
                         CellPhone = c.String(),
+                        Activity = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.UserID);
             

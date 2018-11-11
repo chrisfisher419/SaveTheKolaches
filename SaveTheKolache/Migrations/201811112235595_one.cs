@@ -3,7 +3,7 @@ namespace SaveTheKolache.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class migration2 : DbMigration
+    public partial class one : DbMigration
     {
         public override void Up()
         {

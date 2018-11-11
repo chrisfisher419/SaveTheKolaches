@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
+using SaveTheKolache.Models;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -12,6 +13,7 @@ namespace IdentitySample.Models
         public string PhoneNumber { get; set; }
         public bool TwoFactor { get; set; }
         public bool BrowserRemembered { get; set; }
+        public IEnumerable<UserProfileInfo> UserProfileInfos { get; set; }
     }
 
     public class ManageLoginsViewModel
