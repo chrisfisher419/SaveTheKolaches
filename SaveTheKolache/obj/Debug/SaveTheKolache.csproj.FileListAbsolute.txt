@@ -213,3 +213,6 @@ C:\Users\Chris\Desktop\SaveTheKolache\SaveTheKolache\obj\Debug\SaveTheKolache.pd
 C:\Users\Chris\Desktop\SaveTheKolache\SaveTheKolache\obj\Debug\SaveTheKolache.Migrations.InitialCreate.resources
 C:\Users\Chris\Desktop\SaveTheKolache\SaveTheKolache\obj\Debug\SaveTheKolache.csproj.GenerateResource.cache
 C:\Users\Chris\Desktop\SaveTheKolache\SaveTheKolache\obj\Debug\SaveTheKolache.Migrations.one.resources
+C:\Users\Chris\Desktop\SaveTheKolache\SaveTheKolache\obj\Debug\SaveTheKolache.Migrations.test.resources
+C:\Users\Chris\Desktop\SaveTheKolache\SaveTheKolache\obj\Debug\SaveTheKolache.Migrations.test2.resources
+C:\Users\Chris\Desktop\SaveTheKolache\SaveTheKolache\obj\Debug\SaveTheKolache.Migrations.test3.resources

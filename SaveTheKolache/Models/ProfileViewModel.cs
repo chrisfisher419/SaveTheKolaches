@@ -14,6 +14,8 @@ namespace SaveTheKolache.Models
         public string CellPhone { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        //public bool Activity { get; set; }
+        public System.DateTime BirthDate { get; set; }
 
         public virtual UserProfileInfo UserProfileInfo { get; set; }
         

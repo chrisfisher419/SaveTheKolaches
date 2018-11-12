@@ -24,12 +24,16 @@ namespace SaveTheKolache.Controllers
                 Address = profile.Address,
                 ZipCode = profile.ZipCode,
                 FirstName = profile.FirstName,
-                LastName = profile.LastName
+                LastName = profile.LastName,
+                CellPhone = profile.CellPhone,
+                BirthDate = profile.BirthDate,
+                //Activity = profile.Activity
             };
             return View(model);
 
         }
 
+        [HttpGet]
         public ActionResult Edit()
         {
             var user = User.Identity.Name;
@@ -40,14 +44,18 @@ namespace SaveTheKolache.Controllers
                 Address = profile.Address,
                 ZipCode = profile.ZipCode,
                 FirstName = profile.FirstName,
-                LastName = profile.LastName
+                LastName = profile.LastName,
+                CellPhone = profile.CellPhone,
+                BirthDate = profile.BirthDate,
+                //Activity = profile.Activity
             };
             return View(model);
 
         }
 
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "UserID, FirstName,LastName, Address, ZipCode")] UserProfileInfo userProfileInfo)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(/*[Bind(*//*Include = "UserID, FirstName,LastName, Address, ZipCode")]*/ ProfileViewModel model)
         {
             //var user = User.Identity.Name;
             //UserProfileInfo profile = db.UserProfileInfo.Where(x => x.Username == user).FirstOrDefault();
@@ -58,9 +66,20 @@ namespace SaveTheKolache.Controllers
             //    FirstName = profile.FirstName,
             //    LastName = profile.LastName
             //};
-            db.Entry(userProfileInfo).State = EntityState.Modified;
+            var user = User.Identity.Name;
+            UserProfileInfo profile = db.UserProfileInfo.Where(x => x.Username == user).FirstOrDefault();
+
+            profile.Address = model.Address;
+            profile.ZipCode = model.ZipCode;
+            profile.FirstName = model.FirstName;
+            profile.LastName = model.LastName;
+            profile.CellPhone = model.CellPhone;
+            profile.BirthDate = model.BirthDate;
+            //profile.Activity = model.Activity;
+        
+            db.Entry(profile).State = EntityState.Modified;
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Details");
 
 
         }

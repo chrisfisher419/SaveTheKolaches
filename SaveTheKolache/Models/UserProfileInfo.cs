@@ -28,7 +28,13 @@ namespace SaveTheKolache.Models
         public string ZipCode { get; set; }
         public string EmailAddress { get; set; }
         public string CellPhone { get; set; }
-        public bool Activity { get; set; }
+
+        //public bool Activity
+        //{
+        //    get { return true; }
+        //    set { Activity = value; }
+        //}
+
 
     }
 }
