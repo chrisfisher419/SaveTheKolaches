@@ -108,6 +108,7 @@ namespace IdentitySample.Models
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode =
             true)]
+        [Display(Name = "Birth Date")]
         public System.DateTime BirthDate { get; set; }
 
         [DataType(DataType.DateTime)]

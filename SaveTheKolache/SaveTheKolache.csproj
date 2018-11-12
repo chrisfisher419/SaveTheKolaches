@@ -250,11 +250,20 @@
     <Compile Include="Migrations\201811121734185_test3.Designer.cs">
       <DependentUpon>201811121734185_test3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811121902213_test31.cs" />
+    <Compile Include="Migrations\201811121902213_test31.Designer.cs">
+      <DependentUpon>201811121902213_test31.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811121939228_test4.cs" />
+    <Compile Include="Migrations\201811121939228_test4.Designer.cs">
+      <DependentUpon>201811121939228_test4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
     <Compile Include="Models\Campaign.cs" />
     <Compile Include="Models\CampaignSignViewModel.cs" />
+    <Compile Include="Models\CampaignViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ProfileViewModel.cs" />
@@ -272,11 +281,6 @@
     <Content Include="Views\UserProfileInfoes\Delete.cshtml" />
     <Content Include="Views\UserProfileInfoes\Edit.cshtml" />
     <Content Include="Views\UserProfileInfoes\Index.cshtml" />
-    <Content Include="Views\Campaigns\Create.cshtml" />
-    <Content Include="Views\Campaigns\Delete.cshtml" />
-    <Content Include="Views\Campaigns\Details.cshtml" />
-    <Content Include="Views\Campaigns\Edit.cshtml" />
-    <Content Include="Views\Campaigns\Index.cshtml" />
     <Content Include="Views\UserProfileInfoes\Details.cshtml" />
     <Content Include="Views\SignUpLists\Create.cshtml" />
     <Content Include="Views\SignUpLists\Delete.cshtml" />
@@ -286,6 +290,12 @@
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Profile\Edit.cshtml" />
     <Content Include="Views\Profile\Details.cshtml" />
+    <Content Include="Views\Campaign\Index.cshtml" />
+    <Content Include="Views\Campaign\Create.cshtml" />
+    <Content Include="Views\Campaign\Edit.cshtml" />
+    <Content Include="Views\Campaign\Details.cshtml" />
+    <Content Include="Views\SignUpList\Sign.cshtml" />
+    <Content Include="Views\Campaign\SignedUp.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
@@ -295,8 +305,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Campaign\" />
-    <Folder Include="Views\SignUpList\" />
+    <Folder Include="Views\Campaigns\" />
     <Folder Include="Views\UserProfileInfo\" />
   </ItemGroup>
   <ItemGroup>
@@ -314,6 +323,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811121734185_test3.resx">
       <DependentUpon>201811121734185_test3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811121902213_test31.resx">
+      <DependentUpon>201811121902213_test31.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811121939228_test4.resx">
+      <DependentUpon>201811121939228_test4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
