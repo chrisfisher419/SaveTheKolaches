@@ -65,7 +65,7 @@ namespace IdentitySample.Models
     {
         [Required]
         [Phone]
-        [Display(Name = "Phone Number")]
+        [Display(Name = "SMS Enabled Phone Number")]
         public string Number { get; set; }
     }
 

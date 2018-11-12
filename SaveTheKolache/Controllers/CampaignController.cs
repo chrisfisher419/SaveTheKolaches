@@ -57,7 +57,8 @@ namespace SaveTheKolache.Controllers
             {
                 CampaignName = campaign.CampaignName,
                 Category = campaign.Category,
-                UsersSignedUp = campaign.UsersSignedUp
+                UsersSignedUp = campaign.UsersSignedUp,
+                CampaignInfo = campaign.CampaignInfo
             };
 
             return View(model);
@@ -87,17 +88,22 @@ namespace SaveTheKolache.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CampaignName, Categeory")]Campaign model)
+        public ActionResult Edit(CampaignViewModel viewModel, int? id)
         {
-           
+            Campaign campaign = db.Campaigns.Where(x => x.CampaignID == id).FirstOrDefault();
+
+
+            campaign.CampaignInfo = viewModel.CampaignInfo;
+            campaign.CampaignName = viewModel.CampaignName;
+            campaign.Category = viewModel.Category;
             if (ModelState.IsValid)
             {
-                db.Entry(model).State = EntityState.Modified;
+                db.Entry(campaign).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(model);
+            return View(campaign);
 
 
         }

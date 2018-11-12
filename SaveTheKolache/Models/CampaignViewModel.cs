@@ -14,8 +14,8 @@ namespace SaveTheKolache.Models
         public string Category { get; set; }
         [Display(Name = "Number Of People Signed")]
         public int UsersSignedUp { get; set; }
-        [Display(Name = "Campaign Details")]
-        public string CampaignDetails { get; set; }
+        [Display(Name = "Campaign Info")]
+        public string CampaignInfo { get; set; }
 
         
     }

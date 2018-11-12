@@ -9,9 +9,6 @@
     <div class="col-md-8">
         
         <p>
-            @Html.ActionLink("Add/Modify Address", "AddAddress", "Manage")
-        </p>
-        <p>
             @(Model.HasPassword ? Html.ActionLink("Change your password", "ChangePassword")
                   : Html.ActionLink("Pick a password", "SetPassword"))
         </p>

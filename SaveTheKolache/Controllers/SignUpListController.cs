@@ -15,6 +15,11 @@ namespace SaveTheKolache.Controllers
         ApplicationDbContext db = new ApplicationDbContext();
         // GET: SignUpList
         [HttpGet]
+        public ActionResult AlreadySigned()
+        {
+            return View();
+        }
+
         public ActionResult Sign(int? id)
         {
             if (id == null)
@@ -60,6 +65,14 @@ namespace SaveTheKolache.Controllers
             list.CampaignID = campaign.CampaignID;
             list.CampaignName = campaign.CampaignName;
             //list.DateSigned = System.DateTime.Now;
+
+            if (db.SignnUpList.Any((o => o.UserID == list.UserID)))
+            {
+                if (db.SignnUpList.Any(o => o.CampaignID == list.CampaignID))
+                {
+                    return RedirectToAction("AlreadySigned", "SignUpList");
+                }
+            }
 
             campaign.UsersSignedUp = campaign.UsersSignedUp + 1;
             //campaign.UsersSignedUp++;

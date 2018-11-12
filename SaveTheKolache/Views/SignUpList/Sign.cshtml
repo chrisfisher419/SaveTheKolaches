@@ -12,17 +12,17 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Campaign</h4>
+        <h4>Sign Up For This Campaign?</h4>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Sign" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", "Campaign")
 </div>
 
 @section Scripts {
