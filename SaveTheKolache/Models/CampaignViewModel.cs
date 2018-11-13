@@ -8,6 +8,7 @@ namespace SaveTheKolache.Models
 {
     public class CampaignViewModel
     {
+        public int CampaignID { get; set; }
         [Display(Name = "Campaign Name")]
         public string CampaignName { get; set; }
         [Display(Name = "Type/Category")]
@@ -16,6 +17,9 @@ namespace SaveTheKolache.Models
         public int UsersSignedUp { get; set; }
         [Display(Name = "Campaign Info")]
         public string CampaignInfo { get; set; }
+
+        public IEnumerable<SignUpList> SignUpLists { get; set; }
+        public SignUpList SignUpList { get; set; }
 
         
     }

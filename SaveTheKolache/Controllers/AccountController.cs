@@ -1,5 +1,6 @@
 ﻿using IdentitySample.Models;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 //using SaveTheKolache.DAL;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace IdentitySample.Controllers
 {
@@ -176,8 +178,8 @@ namespace IdentitySample.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
-            
-            if (ModelState.IsValid)
+            using (var context = new ApplicationDbContext())
+                if (ModelState.IsValid)
             {
                 var user = new ApplicationUser
                 {
@@ -204,8 +206,19 @@ namespace IdentitySample.Controllers
                     }
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
+                var roleStore = new RoleStore<IdentityRole>(context);
+                var roleManager = new RoleManager<IdentityRole>(roleStore);
+
+                var userStore = new UserStore<ApplicationUser>(context);
+                var userManager = new UserManager<ApplicationUser>(userStore);
+                //userManager.AddToRole(user.Id, "User");
+
+
+
                 if (result.Succeeded)
                 {
+
+                    UserManager.AddToRole(user.Id, "Active");
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                     //db.UserProfileInfos.Add(new UserProfileInfo
                     //    {

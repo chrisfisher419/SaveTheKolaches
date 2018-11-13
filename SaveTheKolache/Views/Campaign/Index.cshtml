@@ -1,5 +1,5 @@
-﻿@model IEnumerable<SaveTheKolache.Models.Campaign>
-
+﻿@using System.Net.Configuration
+@model SaveTheKolache.Models.CampaignViewModelList
 @{
     ViewBag.Title = "Campaigns";
 }
@@ -12,30 +12,34 @@
         @Html.ActionLink("Create New", "Create")
     }
 </p>
-<table class="table">
+<form method="post">@Html.DropDownList("CampaignID", Model.Campaigns) <input type="submit" value="Go"/>
+</form>
+@Html.ActionLink("Refresh View", "Index", "Campaign")
+<br />
+<table class="table table-bordered table-striped">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.CampaignName)
+           Campaign Name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Category)
+            Category
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.UsersSignedUp)
+            Users Signed Up
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model.CampaignViewModels) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.CampaignName)
+            @item.CampaignName
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Category)
+            @item.Category
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.UsersSignedUp)
+            @item.UsersSignedUp
         </td>
         <td>
             @if (Request.IsAuthenticated && User.IsInRole("Admin"))
@@ -45,6 +49,28 @@
             @Html.ActionLink("Details", "Details", new {id = item.CampaignID}) |
             <button class="btn btn-info" type="button" id="addressSearch" value="Sign Up"   
                     onclick="location.href = '@Url.Action("Sign", "SignUpList", new{id = item.CampaignID})'"/>
+        </td>
+    </tr>
+    <tr @if (Model.IsHidden)
+        {
+        @:class="hidden"
+
+        }>
+        <td><h4>
+            Campaign Details
+        </h4> @item.CampaignInfo</td>
+        <td colspan="3">
+            <table class="table table-bordered table-striped" width="100%">
+                <h4>Users Signed Up For Event</h4>
+                @foreach (var signed in item.SignUpLists)
+                {
+                    <tr>
+                        <td>
+                            @signed.LastName, @signed.FirstName
+                        </td>
+                    </tr>
+                }
+            </table>
         </td>
     </tr>
 }

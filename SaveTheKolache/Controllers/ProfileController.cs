@@ -2,20 +2,28 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using IdentitySample.Models;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using SaveTheKolache.Models;
 
 namespace SaveTheKolache.Controllers
 {
+    [Authorize]
     public class ProfileController : Controller
     {
         ApplicationDbContext db = new ApplicationDbContext();
         // GET: Profile
         public ActionResult Details()
         {
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("Login", "Campaign");
+            }
             var user = User.Identity.Name;
             UserProfileInfo profile = db.UserProfileInfo.Where(x => x.Username == user).FirstOrDefault();
             
@@ -36,6 +44,10 @@ namespace SaveTheKolache.Controllers
         [HttpGet]
         public ActionResult Edit()
         {
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("Login", "Campaign");
+            }
             var user = User.Identity.Name;
             UserProfileInfo profile = db.UserProfileInfo.Where(x => x.Username == user).FirstOrDefault();
 
@@ -76,12 +88,17 @@ namespace SaveTheKolache.Controllers
             profile.CellPhone = model.CellPhone;
             profile.BirthDate = model.BirthDate;
             //profile.Activity = model.Activity;
-        
+
+       
+
+
             db.Entry(profile).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Details");
 
 
         }
+
+     
     }
 }

@@ -10,6 +10,7 @@ using SaveTheKolache.Models;
 
 namespace SaveTheKolache.Controllers
 {
+    [Authorize]
     public class SignUpListController : Controller
     {
         ApplicationDbContext db = new ApplicationDbContext();
@@ -66,13 +67,20 @@ namespace SaveTheKolache.Controllers
             list.CampaignName = campaign.CampaignName;
             //list.DateSigned = System.DateTime.Now;
 
-            if (db.SignnUpList.Any((o => o.UserID == list.UserID)))
-            {
-                if (db.SignnUpList.Any(o => o.CampaignID == list.CampaignID))
+
+            foreach (var item in db.SignnUpList)
+                if (list.UserID == item.UserID && list.CampaignID == item.CampaignID)
                 {
                     return RedirectToAction("AlreadySigned", "SignUpList");
                 }
-            }
+
+            //if (db.SignnUpList.Any((o => o.UserID == list.UserID)))
+            //{
+            //    if (db.SignnUpList(o => o.CampaignID == list.CampaignID))
+            //    {
+            //        return RedirectToAction("AlreadySigned", "SignUpList");
+            //    }
+            //}
 
             campaign.UsersSignedUp = campaign.UsersSignedUp + 1;
             //campaign.UsersSignedUp++;

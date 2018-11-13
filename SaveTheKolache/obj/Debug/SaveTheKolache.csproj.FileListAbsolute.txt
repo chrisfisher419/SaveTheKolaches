@@ -205,7 +205,6 @@ C:\Users\Chris\Desktop\SaveTheKolache\SaveTheKolache\bin\System.Web.WebPages.xml
 C:\Users\Chris\Desktop\SaveTheKolache\SaveTheKolache\bin\System.Web.WebPages.Deployment.xml
 C:\Users\Chris\Desktop\SaveTheKolache\SaveTheKolache\bin\System.Web.WebPages.Razor.xml
 C:\Users\Chris\Desktop\SaveTheKolache\SaveTheKolache\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Chris\Desktop\SaveTheKolache\SaveTheKolache\obj\Debug\SaveTheKolache.csprojAssemblyReference.cache
 C:\Users\Chris\Desktop\SaveTheKolache\SaveTheKolache\obj\Debug\SaveTheKolache.csproj.CoreCompileInputs.cache
 C:\Users\Chris\Desktop\SaveTheKolache\SaveTheKolache\obj\Debug\SaveTheKolache.csproj.CopyComplete
 C:\Users\Chris\Desktop\SaveTheKolache\SaveTheKolache\obj\Debug\SaveTheKolache.dll
@@ -219,3 +218,5 @@ C:\Users\Chris\Desktop\SaveTheKolache\SaveTheKolache\obj\Debug\SaveTheKolache.Mi
 C:\Users\Chris\Desktop\SaveTheKolache\SaveTheKolache\obj\Debug\SaveTheKolache.Migrations.test31.resources
 C:\Users\Chris\Desktop\SaveTheKolache\SaveTheKolache\obj\Debug\SaveTheKolache.Migrations.test4.resources
 C:\Users\Chris\Desktop\SaveTheKolache\SaveTheKolache\obj\Debug\SaveTheKolache.Migrations.test5.resources
+C:\Users\Chris\Desktop\SaveTheKolache\SaveTheKolache\obj\Debug\SaveTheKolache.Migrations._new.resources
+C:\Users\Chris\Desktop\SaveTheKolache\SaveTheKolache\obj\Debug\SaveTheKolache.csprojAssemblyReference.cache

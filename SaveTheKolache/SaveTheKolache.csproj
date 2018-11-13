@@ -264,12 +264,17 @@
     <Compile Include="Migrations\201811122308272_test5.Designer.cs">
       <DependentUpon>201811122308272_test5.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811131445350_new.cs" />
+    <Compile Include="Migrations\201811131445350_new.Designer.cs">
+      <DependentUpon>201811131445350_new.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
     <Compile Include="Models\Campaign.cs" />
     <Compile Include="Models\CampaignSignViewModel.cs" />
     <Compile Include="Models\CampaignViewModel.cs" />
+    <Compile Include="Models\CampaignViewModelList.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ProfileViewModel.cs" />
@@ -338,6 +343,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811122308272_test5.resx">
       <DependentUpon>201811122308272_test5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811131445350_new.resx">
+      <DependentUpon>201811131445350_new.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

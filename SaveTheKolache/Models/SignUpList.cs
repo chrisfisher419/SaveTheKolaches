@@ -22,14 +22,14 @@ namespace SaveTheKolache.Models
         public string LastName { get; set; }
         [Display(Name = "Signed Date")]
         [DataType(DataType.DateTime)]
-        public System.DateTime DateSigned
-        {
-            get
-            {
-                return System.DateTime.Now;
-            }
-            set { DateSigned = value; }
-        }
+        //public System.DateTime DateSigned
+        //{
+        //    get
+        //    {
+        //        return System.DateTime.Now;
+        //    }
+        //    set { DateSigned = value; }
+        //}
         public virtual UserProfileInfo UserProfileInfo { get; set; }
         public virtual Campaign Campaign { get; set; }
     }
