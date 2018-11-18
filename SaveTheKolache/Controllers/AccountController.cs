@@ -17,7 +17,7 @@ namespace IdentitySample.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-        //EFDbContext db = new EFDbContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
         public AccountController()
         {
         }
@@ -69,10 +69,22 @@ namespace IdentitySample.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
+            
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
+
+            var user = User.Identity.Name;
+            UserProfileInfo profile = db.UserProfileInfo.Where(x => x.Username == model.Username).FirstOrDefault();
+            profile.Username = model.Username;
+
+            if (profile.Activity == false)
+            {
+
+                return View("Lockout");
+            }
+
 
             // This doen't count login failures towards lockout only two factor authentication
             // To enable password failures to trigger lockout, change to shouldLockout: true
@@ -202,7 +214,8 @@ namespace IdentitySample.Controllers
                         ZipCode = model.ZipCode,
                         CellPhone = model.CellPhone,
                         EmailAddress = model.EmailAddress,
-                        Password = model.Password
+                        Password = model.Password,
+                        Activity = true
                     }
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);

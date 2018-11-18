@@ -12,7 +12,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>ProfileViewModel</h4>
+        <h4>Profile</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -62,6 +62,29 @@
                 @Html.ValidationMessageFor(model => model.BirthDate, "", new { @class = "text-danger" })
             </div>
         </div>
+        
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.Activity, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.Activity)
+                    @Html.ValidationMessageFor(model => model.Activity, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>*@
+        Activity
+        @Html.DropDownListFor(model => model.Activity, new SelectList(
+        new[]
+        {
+        new { Value = "true", Text = "Active" },
+        new { Value = "false", Text = "Inactive" },
+        },
+        "Value",
+        "Text"
+        //Model
+        ),
+            new { @class = "form-control" })
+        
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

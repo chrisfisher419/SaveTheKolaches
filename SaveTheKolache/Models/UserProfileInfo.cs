@@ -36,6 +36,7 @@ namespace SaveTheKolache.Models
         public string EmailAddress { get; set; }
         [Display(Name = "Phone Number")]
         public string CellPhone { get; set; }
+        public bool Activity { get; set; }
 
         //public bool Activity
         //{

@@ -20,9 +20,12 @@ namespace SaveTheKolache.Models
         public string FirstName { get; set; }
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
+        [Display(Name = "Email")]
+        public string EmailAddress { get; set; }
         //public bool Activity { get; set; }
         [Display(Name = "Birth Date")]
         public System.DateTime BirthDate { get; set; }
+        public bool Activity { get; set; }
 
         public virtual UserProfileInfo UserProfileInfo { get; set; }
         

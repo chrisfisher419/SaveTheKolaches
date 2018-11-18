@@ -1,0 +1,380 @@
+﻿<!DOCTYPE HTML>
+<!--
+    ZeroFour by HTML5 UP
+    html5up.net | ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <title>Save The Kolache</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="~/ZeroFour/css/main.css" />
+
+</head>
+<body class="homepage is-preload">
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <div id="header-wrapper">
+            <div class="container">
+
+                <!-- Header -->
+                <header id="header">
+                    <div class="inner">
+
+                        <!-- Logo -->
+                        <h1>@Html.ActionLink("Save The Kolache", "Index", "Home")</h1>
+                        
+
+                        <!-- Nav -->
+                        <nav id="nav">
+                            <ul>
+                                <li class="current_page_item">@Html.ActionLink("Home", "Index", "Home")</li>
+
+                                <li>
+                                    <a href="#">More Info</a>
+                                    <ul>
+                                        <li></li>
+                                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                                        @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                                        {
+                                            <li>@Html.ActionLink("RolesAdmin", "Index", "RolesAdmin")</li>
+                                            <li>@Html.ActionLink("UsersAdmin", "Index", "UsersAdmin")</li>
+                                        }
+
+                                        <li>
+
+                                            <ul>
+                                                @*@if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <li>@Html.ActionLink("RolesAdmin", "Index", "RolesAdmin")</li>
+                            <li>@Html.ActionLink("UsersAdmin", "Index", "UsersAdmin")</li>
+                        }*@
+                                                @*@if (Request.IsAuthenticated && User.IsInRole("Admin, Active"))
+                        {
+                            <li>@Html.ActionLink("Profile", "Details", "Profile")</li>
+                            <li>@Html.ActionLink("Campaigns", "Index", "Campaign")</li>
+                            <li>@Html.Partial("_LoginPartial")</li>
+                        }*@
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li>@Html.ActionLink("Profile", "Details", "Profile")</li>
+                                @if (Request.IsAuthenticated && User.IsInRole("Admin") || User.IsInRole("Active"))
+                                {
+                                    <li>@Html.ActionLink("Campaigns", "Index", "Campaign")</li>
+                                }
+                                <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                                <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                            </ul>
+                        </nav>
+
+                    </div>
+                </header>
+
+                <!-- Banner -->
+                @*<div id="banner">
+                    <h2>
+                        <strong>ZeroFour:</strong> A free responsive site template
+                        <br />
+                        built on HTML5 and CSS3 by <a href="http://html5up.net">HTML5 UP</a>
+                    </h2>
+                    <p>Does this statement make you want to click the big shiny button?</p>
+                    <a href="#" class="button large icon fa-check-circle">Yes it does</a>
+                </div>
+
+            </div>
+        </div>*@
+
+        <!-- Main Wrapper -->
+        <div id="main-wrapper">
+            <div class="wrapper style1">
+                <div class="inner">
+                    <div class="container body-content">
+                        @RenderBody()
+                    </div>
+                    <!-- Feature 1 -->
+                    <section class="container box feature1">
+                        <div class="row">
+                            <div class="col-12">
+                                <header class="first major">
+                                </header>
+                            </div>
+                            @*<br/>*@
+                            <br/>
+                            <div class="col-4 col-12-medium">
+                                <section>
+                                    <a href="#" class="image featured"><img src="image" alt="" /></a>
+                                    <header class="second icon fa-user">
+                                        <h3>March For Crayons</h3>
+                                        <p>Information</p>
+                                    </header>
+                                </section>
+                            </div>
+                            <div class="col-4 col-12-medium">
+                                <section>
+                                    <a href="#" class="image featured"><img src="image" alt="" /></a>
+                                    <header class="second icon fa-cog">
+                                        <h3>Save The Kolache!</h3>
+                                        <p>Information</p>
+                                    </header>
+                                </section>
+                            </div>
+                            <div class="col-4 col-12-medium">
+                                <section>
+                                    <a href="#" class="image featured"><img src="image" alt="" /></a>
+                                    <header class="second icon fa-bar-chart-o">
+                                        <h3>Technology For Youth</h3>
+                                        <p>Information</p>
+                                    </header>
+                                </section>
+                            </div>
+                            <div class="col-12">
+                                <p>
+                                    @Html.ActionLink("Click here to preview our campaigns!", "CampaignPreview", "Campaign")
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+            <div class="wrapper style2">
+                <div class="inner">
+
+                    <!-- Feature 2 -->
+                    <section class="container box feature2">
+                        <div class="row">
+                            <div class="col-6 col-12-medium">
+                                <section>
+                                    <header class="major">
+                                        <h2>News</h2>
+                                        <p>Information</p>
+                                    </header>
+                                    <p>
+                                        Text goes here
+                                    </p>
+                                    <footer>
+                                        <a href="#" class="button medium icon fa-arrow-circle-right">Text</a>
+                                    </footer>
+                                </section>
+                            </div>
+                            <div class="col-6 col-12-medium">
+                                <section>
+                                    <header class="major">
+                                        <h2>Other</h2>
+                                        <p>Info</p>
+                                    </header>
+                                    <p>
+                                       Text goes here
+                                    </p>
+                                    <footer>
+                                        <a href="#" class="button medium alt icon fa-info-circle">Text</a>
+                                    </footer>
+                                </section>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+            <div class="wrapper style3">
+                <div class="inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-8 col-12-medium">
+
+                                <!-- Article list -->
+                                <section class="box article-list">
+                                    <h2 class="icon fa-file-text-o">Text</h2>
+
+                                    <!-- Excerpt -->
+                                    <article class="box excerpt">
+                                        <a href="#" class="image left"><img src="image" alt="" /></a>
+                                        <div>
+                                            <header>
+                                                <span class="date">Text</span>
+                                                <h3><a href="#">Text</a></h3>
+                                            </header>
+                                            <p>
+                                                Text goes here
+                                            </p>
+                                        </div>
+                                    </article>
+
+                                    <!-- Excerpt -->
+                                    <article class="box excerpt">
+                                        <a href="#" class="image left"><img src="image" alt="" /></a>
+                                        <div>
+                                            <header>
+                                                <span class="date">Text</span>
+                                                <h3><a href="#">Text</a></h3>
+                                            </header>
+                                            <p>
+                                                Text goes here
+                                            </p>
+                                        </div>
+                                    </article>
+
+                                    <!-- Excerpt -->
+                                    <article class="box excerpt">
+                                        <a href="#" class="image left"><img src="image" alt="" /></a>
+                                        <div>
+                                            <header>
+                                                <span class="date">Text</span>
+                                                <h3><a href="#">Text</a></h3>
+                                            </header>
+                                            <p>
+                                               Text goes here
+                                            </p>
+                                        </div>
+                                    </article>
+
+                                </section>
+                            </div>
+                            <div class="col-4 col-12-medium">
+
+                                <!-- Spotlight -->
+                                <section class="box spotlight">
+                                    <h2 class="icon fa-file-text-o">Spotlight</h2>
+                                    <article>
+                                        <a href="#" class="image featured"><img src="image" alt=""></a>
+                                        <header>
+                                            <h3><a href="#">Text</a></h3>
+                                            <p></p>
+                                        </header>
+                                        <p>
+                                            Text goes here
+                                        </p>
+                                        <p>
+                                            Text goes here
+                                        </p>
+                                        <footer>
+                                            <a href="#" class="button alt icon fa-file-o">Continue Reading</a>
+                                        </footer>
+                                    </article>
+                                </section>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Wrapper -->
+        <div id="footer-wrapper">
+            <footer id="footer" class="container">
+                <div class="row">
+                    <div class="col-3 col-6-medium col-12-small">
+
+                        <!-- Links -->
+                        <section>
+                            <h2>Filler Links</h2>
+                            <ul class="divided">
+                                <li><a href="#">GitHub</a></li>
+                                <li><a href="#">Learn For Life</a></li>
+                                <li><a href="#">Supplement Store</a></li>
+                                <li><a href="#">LinkedIn</a></li>
+                            </ul>
+                        </section>
+
+                    </div>
+                    <div class="col-3 col-6-medium col-12-small">
+
+                        <!-- Links -->
+                        <section>
+                            <h2>More Filler</h2>
+                            <ul class="divided">
+                                <li><a href="#">Text</a></li>
+                                <li><a href="#">Text</a></li>
+                                <li><a href="#">Text</a></li>
+                                <li><a href="#">Text</a></li>
+                            </ul>
+                        </section>
+
+                        <!-- Links -->
+                        <section>
+                            <h2>Even More Filler</h2>
+                            <ul class="divided">
+                                <li><a href="#">Text</a></li>
+                                <li><a href="#">Text</a></li>
+                                <li><a href="#">Text</a></li>
+                                <li><a href="#">Text</a></li>
+                            </ul>
+                        </section>
+
+                    </div>
+                    <div class="col-6 col-12-medium imp-medium">
+
+                        <!-- About -->
+                        <section>
+                            <h2></h2>
+                            <p>
+
+                            </p>
+                            <a href="#" class="button alt icon fa-arrow-circle-right">Learn More</a>
+                        </section>
+
+                        <!-- Contact -->
+                        <section>
+                            <h2>Contact Info</h2>
+                            <div>
+                                <div class="row">
+                                    <div class="col-6 col-12-small">
+                                        <dl class="contact">
+                                            <dt>
+                                                <dd></dd>
+                                            </dt>
+                                        </dl>
+                                    </div>
+                                    <div class="col-6 col-12-small">
+                                        <dl class="contact">
+
+                                            <dt>Address</dt>
+                                            <dd>
+                                                Address<br/>
+                                                City, State Zip<br/>
+                                                USA
+                                            </dd>
+                                            <dt>Phone</dt>
+                                            <dd>(000) 000-0000</dd>
+                                            <dt>Email</dt>
+                                            <dd><a href="mailto:christopher.fisher419@outlook.com">Email Me</a></dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                    </div>
+                    <div class="col-12">
+                        <div id="copyright">
+                            <ul class="menu">
+                                <li>&copy; Save The Kolache. All rights reserved</li>
+                                <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    @RenderSection("scripts", required: false)
+    <script src="~/ZeroFour/js/jquery.min.js"></script>
+    <script src="~/ZeroFour/js/jquery.dropotron.min.js"></script>
+    <script src="~/ZeroFour/js/browser.min.js"></script>
+    <script src="~/ZeroFour/js/breakpoints.min.js"></script>
+    <script src="~/ZeroFour/js/util.js"></script>
+    <script src="~/ZeroFour/js/main.js"></script>
+
+</body>
+</html>

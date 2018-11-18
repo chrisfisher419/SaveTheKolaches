@@ -182,6 +182,11 @@ namespace SaveTheKolache.Controllers
 
         }
 
+        public ActionResult CampaignPreview()
+        {
+            return View(db.Campaigns.ToList());
+        }
+
         //public ActionResult Search(string sortOrder, string searchString)
         //{
 

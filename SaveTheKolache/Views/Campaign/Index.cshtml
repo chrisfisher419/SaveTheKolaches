@@ -1,8 +1,93 @@
 ﻿@using System.Net.Configuration
 @model SaveTheKolache.Models.CampaignViewModelList
-@{
-    ViewBag.Title = "Campaigns";
+
+@if (Request.IsAuthenticated && User.IsInRole("Admin"))
+{
+    {
+        ViewBag.Title = "Campaigns (Admin View)";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    <h2>Campaigns</h2>
+
+    <p>
+        @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+        {
+            @Html.ActionLink("Create New", "Create")
+        }
+    </p>
+    <form method="post">
+        @Html.DropDownList("CampaignID", Model.Campaigns) <input type="submit" value="Go" />
+    </form>
+    @Html.ActionLink("Refresh View", "Index", "Campaign")
+    <br />
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th align="left">
+                <strong>Campaign Name</strong>
+            </th>
+            <th align="left">
+                <strong>Category</strong>
+            </th>
+            <th align="left">
+                <strong> Users Signed Up </strong>
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.CampaignViewModels)
+        {
+            <tr>
+                <td align="left">
+                    @item.CampaignName
+                </td>
+                <td align="left">
+                    @item.Category
+                </td>
+                <td align="left">
+                    @item.UsersSignedUp
+                </td>
+                <td align="left">
+                    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        @Html.ActionLink("Edit", "Edit", new { id = item.CampaignID })
+                    }
+                    @Html.ActionLink("Details", "Details", new { id = item.CampaignID }) |
+                    <button class="btn btn-default" type="button" id="addressSearch" value="Sign Up"
+                            onclick="location.href = '@Url.Action("Sign", "SignUpList", new{id = item.CampaignID})'">Sign</button>
+                </td>
+            </tr>
+            <tr @if (Model.IsHidden) { @: class="hidden"
+                }>
+                <td>
+                    <h4>
+                        <strong>Campaign Details</strong>
+                    </h4> @item.CampaignInfo
+                </td>
+                <td colspan="3">
+                    <table class="table table-bordered table-striped" width="100%">
+                        <h4>Users Signed Up For Event</h4>
+                        @foreach (var signed in item.SignUpLists)
+                        {
+                            <tr>
+                                <td>
+                                    @signed.LastName, @signed.FirstName
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </td>
+            </tr>
+        }
+
+    </table>
 }
+
+@if (Request.IsAuthenticated && User.IsInRole("Active") && !User.IsInRole("Admin")) { 
+    {
+        ViewBag.Title = "Campaigns";
+
+    }
 
 <h2>Campaigns</h2>
 
@@ -12,67 +97,69 @@
         @Html.ActionLink("Create New", "Create")
     }
 </p>
-<form method="post">@Html.DropDownList("CampaignID", Model.Campaigns) <input type="submit" value="Go"/>
+<form method="post">
+    @Html.DropDownList("CampaignID", Model.Campaigns) <input type="submit" value="Go" />
 </form>
 @Html.ActionLink("Refresh View", "Index", "Campaign")
 <br />
 <table class="table table-bordered table-striped">
     <tr>
-        <th>
-           Campaign Name
+        <th align="left">
+            <strong>Campaign Name</strong>
         </th>
-        <th>
-            Category
+        <th align="left">
+            <strong>Category</strong>
         </th>
-        <th>
-            Users Signed Up
+        <th align="left">
+            <strong> Users Signed Up </strong>
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model.CampaignViewModels) {
-    <tr>
-        <td>
-            @item.CampaignName
-        </td>
-        <td>
-            @item.Category
-        </td>
-        <td>
-            @item.UsersSignedUp
-        </td>
-        <td>
-            @if (Request.IsAuthenticated && User.IsInRole("Admin"))
-            {
-                @Html.ActionLink("Edit", "Edit", new {id = item.CampaignID}) 
-            }|
-            @Html.ActionLink("Details", "Details", new {id = item.CampaignID}) |
-            <button class="btn btn-info" type="button" id="addressSearch" value="Sign Up"   
-                    onclick="location.href = '@Url.Action("Sign", "SignUpList", new{id = item.CampaignID})'"/>
-        </td>
-    </tr>
-    <tr @if (Model.IsHidden)
-        {
-        @:class="hidden"
-
-        }>
-        <td><h4>
-            Campaign Details
-        </h4> @item.CampaignInfo</td>
-        <td colspan="3">
-            <table class="table table-bordered table-striped" width="100%">
-                <h4>Users Signed Up For Event</h4>
-                @foreach (var signed in item.SignUpLists)
+    @foreach (var item in Model.CampaignViewModels)
+    {
+        <tr>
+            <td align="left">
+                @item.CampaignName
+            </td>
+            <td align="left">
+                @item.Category
+            </td>
+            <td align="left">
+                @item.UsersSignedUp
+            </td>
+            <td align="left">
+                @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                 {
-                    <tr>
-                        <td>
-                            @signed.LastName, @signed.FirstName
-                        </td>
-                    </tr>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CampaignID })
                 }
-            </table>
-        </td>
-    </tr>
-}
+                @Html.ActionLink("Details", "Details", new { id = item.CampaignID }) |
+                <button class="btn btn-default" type="button" id="addressSearch" value="Sign Up"
+                        onclick="location.href = '@Url.Action("Sign", "SignUpList", new{id = item.CampaignID})'">Sign</button>
+            </td>
+        </tr>
+        @*<tr @if (Model.IsHidden) { @: class="hidden"
+            }>
+            <td>
+                <h4>
+                    <strong>Campaign Details</strong>
+                </h4> @item.CampaignInfo
+            </td>
+            <td colspan="3">
+                <table class="table table-bordered table-striped" width="100%">
+                    <h4>Users Signed Up For Event</h4>
+                    @foreach (var signed in item.SignUpLists)
+                    {
+                        <tr>
+                            <td>
+                                @signed.LastName, @signed.FirstName
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </td>
+        </tr>*@
+    }
 
 </table>
+}

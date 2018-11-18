@@ -1,0 +1,47 @@
+﻿@model IEnumerable<SaveTheKolache.Models.Campaign>
+
+@{
+    ViewBag.Title = "CampaignPreview";
+}
+
+<h2>Campaign Preview</h2>
+
+<p>
+</p>
+<table class="table" table-bordered table-striped">
+    <tr>
+        <th align="left">
+            <strong>@Html.DisplayNameFor(model => model.CampaignName)</strong>
+        </th>
+        <th align="left">
+            <strong>@Html.DisplayNameFor(model => model.Category)</strong>
+        </th>
+        <th align="left">
+        <strong> @Html.DisplayNameFor(model => model.UsersSignedUp)</strong>
+        </th>
+        <th align="left">
+        <strong> @Html.DisplayNameFor(model => model.CampaignInfo)</strong>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CampaignName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UsersSignedUp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CampaignInfo)
+        </td>
+        <td>
+        </td>
+    </tr>
+}
+
+</table>

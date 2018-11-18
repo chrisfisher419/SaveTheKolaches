@@ -10,6 +10,7 @@ using System.Web;
 using System.Web.Mvc;
 //using SaveTheKolache.DAL;
 using SaveTheKolache.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace IdentitySample.Controllers
 {
@@ -17,6 +18,7 @@ namespace IdentitySample.Controllers
     public class ManageController : Controller
     {
         //private EFDbContext db = new EFDbContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         public ManageController()
         {
@@ -65,6 +67,12 @@ namespace IdentitySample.Controllers
                 UserProfileInfos = new List<UserProfileInfo>()
 
             };
+
+            //var roleStore = new RoleStore<IdentityRole>(db);
+            //var roleManager = new RoleManager<IdentityRole>(roleStore);
+
+            //var userStore = new UserStore<ApplicationUser>(db);
+            //var userManager = new UserManager<ApplicationUser>(userStore);
             return View(model);
         }
 
